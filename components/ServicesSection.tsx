@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion'; // Import motion
 
 type ServiceCategory = 'Management' | 'Systems' | 'Processes';
 
@@ -29,10 +30,31 @@ const categoryDisplayNames: Record<ServiceCategory, string> = {
 };
 
 const ServiceCard: React.FC<{ title: string; description: string }> = ({ title, description }) => (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-[#64ffda] hover:shadow-xl hover:shadow-[#64ffda]/20 hover:-translate-y-1 transition-all duration-300">
+    <motion.div
+        className="bg-gray-900 p-6 rounded-lg shadow-md border-l-4 border-[#64ffda] cursor-pointer" // Removed hover classes
+        tabIndex={0} // Make card focusable for keyboard navigation
+        initial={{ rotateX: 0, rotateY: 0, y: 0, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)' }} // Default shadow-md
+        whileHover={{
+            rotateX: -6, // Tilt up from bottom
+            rotateY: 6, // Tilt from left to right
+            y: -8, // Lift slightly
+            boxShadow: '0 0 30px rgba(100, 255, 218, 0.4), 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)', // Soft glow + enhanced shadow
+            zIndex: 10, // Bring to front on hover/focus
+        }}
+        whileFocus={{
+            rotateX: -6,
+            rotateY: 6,
+            y: -8,
+            boxShadow: '0 0 30px rgba(100, 255, 218, 0.4), 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)',
+            outline: 'none', // Remove default outline for custom styling
+            zIndex: 10,
+        }}
+        transition={{ duration: 0.36, ease: [0.2, 0.9, 0.3, 1] }} // Use motion tokens
+        style={{ transformStyle: 'preserve-3d', transformOrigin: 'center' }} // Enable 3D transform
+    >
         <h3 className="text-gray-100 text-xl font-bold mb-2">{title}</h3>
         <p className="text-gray-300">{description}</p>
-    </div>
+    </motion.div>
 );
 
 const AccordionItem: React.FC<{

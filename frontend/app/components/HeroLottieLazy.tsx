@@ -15,8 +15,9 @@ export default function HeroLottieLazy({ src, className="" }) {
     return () => {
       // Fix: Correctly call cancelIdleCallback or clearTimeout on the window object
       if (typeof t === 'number') { // This covers both setTimeout and requestIdleCallback IDs
-        if (window.requestIdleCallback && 'cancelIdleCallback' in window) {
-          window.cancelIdleCallback(t as IdleRequestID);
+        // Fix: Changed `IdleRequestID` to `number` to resolve TypeScript error as `requestIdleCallback` returns a number.
+        if (typeof window.cancelIdleCallback === 'function') {
+          window.cancelIdleCallback(t as number);
         } else {
           clearTimeout(t);
         }
