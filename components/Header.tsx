@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const Logo = () => (
-    <div className="flex items-center space-x-2">
-        <svg className="w-10 h-10 text-[#64ffda]" viewBox="0 0 512 512" fill="currentColor">
-            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM159.3 159.3C196.4 122.2 250 100.7 304 96.3c-2.8-13.4-12.4-23.7-25.7-25.7-53.6-4.4-107.2 17.1-144.3 54.2s-58.6 90.7-54.2 144.3c2 13.3 12.3 22.9 25.7 25.7 4.4 54 25.9 107.6 63 144.7s82.1 58.6 135.7 63c13.4-2 23-12.3 25.7-25.7-4.4-54-25.9-107.6-63-144.7s-82.1-58.6-135.7-63zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/>
+    <div className="flex items-center space-x-3">
+        <svg className="w-9 h-9 text-[#64ffda]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 9L20.4 24L6 39" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M22 9L36.4 24L22 39" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6"/>
+            <path d="M38 9L42 24L38 39" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.3"/>
         </svg>
         <span className="text-2xl font-bold tracking-wider text-slate-100">WIDEANGLE</span>
     </div>
