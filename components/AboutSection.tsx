@@ -17,8 +17,8 @@ const AboutSection: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
-                    <div className="md:w-1/2">
-                        <img src="https://picsum.photos/800/600?random=2" alt="Team collaborating in a modern office" className="rounded-lg shadow-2xl"/>
+                    <div className="md:w-1/2 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Team collaborating in a modern office" className="rounded-lg shadow-2xl animated-image"/>
                     </div>
                     <div className="md:w-1/2 text-lg text-slate-300 leading-relaxed">
                         <p>

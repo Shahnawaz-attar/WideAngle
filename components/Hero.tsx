@@ -2,9 +2,15 @@ import React from 'react';
 
 const Hero: React.FC = () => {
     return (
-        <section id="home" className="relative h-screen flex items-center justify-center text-center px-6">
+        <section id="home" className="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-[#0a192f]/70 to-transparent z-10"></div>
-            <img src="https://picsum.photos/1920/1080?grayscale&random=10" alt="Modern airport architecture" className="absolute inset-0 w-full h-full object-cover"/>
+            <div className="absolute inset-0">
+                <img 
+                    src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=2070&auto=format&fit=crop" 
+                    alt="Modern airport terminal interior" 
+                    className="w-full h-full object-cover hero-bg-animate"
+                />
+            </div>
             <div className="relative z-20 max-w-4xl">
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight uppercase mb-4 text-slate-100" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
                     WIDE<span className="text-[#64ffda]">ANGLE</span>

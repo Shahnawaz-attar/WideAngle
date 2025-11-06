@@ -25,8 +25,8 @@ const SpecializationSection: React.FC = () => {
                             ))}
                         </ul>
                     </div>
-                    <div className="lg:w-1/2">
-                        <img src="https://picsum.photos/800/600?random=3" alt="Aerial view of an airport tarmac" className="rounded-lg shadow-2xl w-full h-full object-cover"/>
+                    <div className="lg:w-1/2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=2070&auto=format&fit=crop" alt="Aerial view of an airport tarmac" className="rounded-lg shadow-2xl w-full h-full object-cover animated-image"/>
                     </div>
                 </div>
             </div>

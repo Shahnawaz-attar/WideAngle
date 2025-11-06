@@ -17,7 +17,8 @@
       body {
         font-family: 'Inter', sans-serif;
       }
-      /* Animation for revealing sections on scroll */
+      
+      /* Base animation for revealing sections on scroll */
       section[id] {
         opacity: 0;
         transform: translateY(30px);
@@ -26,6 +27,52 @@
       section[id].visible {
         opacity: 1;
         transform: translateY(0);
+      }
+      
+      /* --- Futuristic Image Animations --- */
+      
+      /* Hero background image slow zoom */
+      @keyframes zoomIn {
+        from { transform: scale(1); }
+        to { transform: scale(1.1); }
+      }
+      .hero-bg-animate {
+        animation: zoomIn 15s ease-out forwards;
+      }
+
+      /* Base transition for all section images */
+      section[id] .animated-image {
+        transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      /* About Section Image: Slide in from left and scale up */
+      #about .animated-image {
+        opacity: 0;
+        transform: translateX(-50px) scale(0.95);
+      }
+      #about.visible .animated-image {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+
+      /* Specialization Section Image: Reveal with a clip-path */
+      #specialization .animated-image {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+      }
+      #specialization.visible .animated-image {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+      }
+      
+      /* Leadership Section Image: Fade in and scale up */
+      #leadership .animated-image {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      #leadership.visible .animated-image {
+        opacity: 1;
+        transform: scale(1);
       }
     </style>
   <script type="importmap">
