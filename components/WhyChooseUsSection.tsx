@@ -1,4 +1,3 @@
-// FIX: Import React to provide the JSX namespace and React types.
 import React from 'react';
 
 const reasons = [
@@ -24,17 +23,18 @@ const reasons = [
     }
 ];
 
-const ReasonCard: React.FC<{ icon: JSX.Element; title: string; description: string; }> = ({ icon, title, description }) => {
+// Fix: Replaced JSX.Element with React.ReactElement to resolve namespace issue.
+const ReasonCard: React.FC<{ icon: React.ReactElement; title: string; description: string; }> = ({ icon, title, description }) => {
     return (
-        <div className="flex items-start p-6 bg-slate-50 rounded-lg transition-all duration-300 hover:bg-white hover:shadow-lg">
+        <div className="flex items-start p-6 bg-[#112240] rounded-lg transition-all duration-300 hover:bg-[#172a45] hover:shadow-xl transform hover:-translate-y-1">
             <div className="flex-shrink-0 mr-6">
-                <div className="bg-blue-100 text-blue-600 rounded-full p-4">
+                <div className="bg-[#64ffda]/10 text-[#64ffda] rounded-full p-4">
                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>{icon}</svg>
                 </div>
             </div>
             <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">{title}</h3>
-                <p className="text-slate-600">{description}</p>
+                <h3 className="text-xl font-bold text-slate-100 mb-2">{title}</h3>
+                <p className="text-slate-300">{description}</p>
             </div>
         </div>
     );
@@ -43,11 +43,11 @@ const ReasonCard: React.FC<{ icon: JSX.Element; title: string; description: stri
 
 const WhyChooseUsSection: React.FC = () => {
     return (
-        <section id="why-choose-us" className="py-20 bg-white">
+        <section id="why-choose-us" className="py-24 bg-[#0a192f]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-800">Why Choose Us</h2>
-                    <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                    <h2 className="text-4xl font-bold text-slate-100">Why Choose Us</h2>
+                    <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {reasons.map((reason, index) => (

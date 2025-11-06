@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 type ServiceCategory = 'Management' | 'Systems' | 'Processes';
@@ -26,8 +25,8 @@ const servicesData = {
 const TabButton: React.FC<{ active: boolean; onClick: () => void; children: React.ReactNode }> = ({ active, onClick, children }) => (
     <button
         onClick={onClick}
-        className={`px-6 py-3 font-semibold text-lg rounded-t-lg transition-colors duration-300 focus:outline-none ${
-            active ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600 hover:bg-slate-300'
+        className={`px-6 py-3 font-semibold text-lg transition-colors duration-300 focus:outline-none border-b-2 ${
+            active ? 'border-[#64ffda] text-[#64ffda]' : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-500'
         }`}
     >
         {children}
@@ -35,9 +34,9 @@ const TabButton: React.FC<{ active: boolean; onClick: () => void; children: Reac
 );
 
 const ServiceCard: React.FC<{ title: string; description: string }> = ({ title, description }) => (
-    <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 hover:shadow-lg transition-shadow">
-        <h3 className="text-xl font-bold text-slate-800 mb-2">{title}</h3>
-        <p className="text-slate-600">{description}</p>
+    <div className="bg-[#112240] p-6 rounded-lg shadow-md border-l-4 border-[#64ffda] hover:shadow-xl hover:shadow-[#64ffda]/10 hover:-translate-y-1 transition-all duration-300">
+        <h3 className="text-xl font-bold text-slate-100 mb-2">{title}</h3>
+        <p className="text-slate-300">{description}</p>
     </div>
 );
 
@@ -45,13 +44,13 @@ const ServicesSection: React.FC = () => {
     const [activeTab, setActiveTab] = useState<ServiceCategory>('Management');
 
     return (
-        <section id="services" className="py-20 bg-slate-100">
+        <section id="services" className="py-24 bg-[#112240]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-800">Our Services</h2>
-                    <div className="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+                    <h2 className="text-4xl font-bold text-slate-100">Our Services</h2>
+                    <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
-                <div className="flex justify-center border-b border-slate-300 mb-8">
+                <div className="flex justify-center mb-8">
                     <TabButton active={activeTab === 'Management'} onClick={() => setActiveTab('Management')}>Core Management</TabButton>
                     <TabButton active={activeTab === 'Systems'} onClick={() => setActiveTab('Systems')}>Systems Implementation</TabButton>
                     <TabButton active={activeTab === 'Processes'} onClick={() => setActiveTab('Processes')}>Operational Processes</TabButton>
