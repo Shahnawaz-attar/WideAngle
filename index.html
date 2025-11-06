@@ -19,12 +19,12 @@
       }
       
       /* Base animation for revealing sections on scroll */
-      section[id] {
+      section[id], footer[id] {
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
       }
-      section[id].visible {
+      section[id].visible, footer[id].visible {
         opacity: 1;
         transform: translateY(0);
       }
@@ -80,12 +80,19 @@
   "imports": {
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.66.0",
+    "@hookform/resolvers/": "https://aistudiocdn.com/@hookform/resolvers@^5.2.2/",
+    "zod": "https://aistudiocdn.com/zod@^4.1.12",
+    "next": "https://aistudiocdn.com/next@^16.0.1",
+    "next/": "https://aistudiocdn.com/next@^16.0.1/",
+    "react-lottie-player": "https://aistudiocdn.com/react-lottie-player@^2.1.0"
   }
 }
 </script>
 </head>
-  <body class="bg-[#0a192f] text-slate-300 overflow-x-hidden">
+  <body class="overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

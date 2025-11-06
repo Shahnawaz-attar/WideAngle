@@ -26,15 +26,15 @@ const reasons = [
 // Fix: Replaced JSX.Element with React.ReactElement to resolve namespace issue.
 const ReasonCard: React.FC<{ icon: React.ReactElement; title: string; description: string; }> = ({ icon, title, description }) => {
     return (
-        <div className="flex items-start p-6 bg-[#112240] rounded-lg transition-all duration-300 hover:bg-[#172a45] hover:shadow-xl transform hover:-translate-y-1">
+        <div className="flex items-start p-6 bg-gray-800 rounded-lg transition-all duration-300 hover:bg-gray-700 hover:shadow-xl transform hover:-translate-y-1">
             <div className="flex-shrink-0 mr-6">
                 <div className="bg-[#64ffda]/10 text-[#64ffda] rounded-full p-4">
                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>{icon}</svg>
                 </div>
             </div>
             <div>
-                <h3 className="text-xl font-bold text-slate-100 mb-2">{title}</h3>
-                <p className="text-slate-300">{description}</p>
+                <h3 className="text-gray-100 text-xl font-bold mb-2">{title}</h3>
+                <p className="text-gray-300">{description}</p>
             </div>
         </div>
     );
@@ -43,10 +43,10 @@ const ReasonCard: React.FC<{ icon: React.ReactElement; title: string; descriptio
 
 const WhyChooseUsSection: React.FC = () => {
     return (
-        <section id="why-choose-us" className="py-24 bg-[#0a192f]">
+        <section id="why-choose-us" className="py-24 bg-gray-900">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-100">Why Choose Us</h2>
+                    <h2 className="text-gray-100 text-4xl font-bold">Why Choose Us</h2>
                     <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">

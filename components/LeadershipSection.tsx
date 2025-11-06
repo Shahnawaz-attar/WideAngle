@@ -19,31 +19,31 @@ const LeadershipSection: React.FC = () => {
     ];
 
     return (
-        <section id="leadership" className="py-24 bg-[#112240]">
+        <section id="leadership" className="py-24 bg-gray-800">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-100">Leadership</h2>
+                    <h2 className="text-gray-100 text-4xl font-bold">Leadership</h2>
                     <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
-                <div className="bg-[#0a192f] rounded-lg shadow-xl p-8 md:p-12 max-w-6xl mx-auto">
+                <div className="bg-gray-900 rounded-lg shadow-xl p-8 md:p-12 max-w-6xl mx-auto">
                     <div className="flex flex-col md:flex-row items-center gap-12">
                         <div className="md:w-1/3 text-center">
                             <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop" alt="Hassan Hammadeh, CEO" className="w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto shadow-lg border-4 border-[#64ffda] animated-image" />
-                            <h3 className="text-2xl font-bold mt-6 text-slate-100">Hassan Hammadeh</h3>
+                            <h3 className="text-gray-100 text-2xl font-bold mt-6">Hassan Hammadeh</h3>
                             <p className="text-lg text-[#64ffda]">CEO & Founder</p>
                         </div>
                         <div className="md:w-2/3">
-                            <h4 className="text-2xl font-semibold text-slate-100 mb-4 border-b-2 border-[#64ffda]/50 pb-2">Key Achievements</h4>
-                            <ul className="list-disc list-inside space-y-3 text-slate-300">
+                            <h4 className="text-gray-100 text-2xl font-semibold mb-4 border-b-2 border-[#64ffda]/50 pb-2">Key Achievements</h4>
+                            <ul className="list-disc list-inside space-y-3 text-gray-300">
                                 {achievements.map((item, index) => (
                                     <li key={index}>{item}</li>
                                 ))}
                             </ul>
 
-                            <h4 className="text-2xl font-semibold text-slate-100 mt-8 mb-4 border-b-2 border-[#64ffda]/50 pb-2">Notable Projects</h4>
+                            <h4 className="text-gray-100 text-2xl font-semibold mt-8 mb-4 border-b-2 border-[#64ffda]/50 pb-2">Notable Projects</h4>
                              <div className="flex flex-wrap gap-3">
                                 {projects.map((project, index) => (
-                                    <span key={index} className="bg-[#112240] text-slate-300 text-sm font-medium px-4 py-2 rounded-full border border-slate-700">
+                                    <span key={index} className="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full border border-gray-600">
                                         {project}
                                     </span>
                                 ))}

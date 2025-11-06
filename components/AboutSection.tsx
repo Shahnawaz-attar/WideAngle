@@ -9,10 +9,10 @@ const missionItems = [
 
 const AboutSection: React.FC = () => {
     return (
-        <section id="about" className="py-24 bg-[#0a192f]">
+        <section id="about" className="py-24 bg-gray-900">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-100">Who We Are</h2>
+                    <h2 className="text-gray-100 text-4xl font-bold">Who We Are</h2>
                     <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
 
@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
                     <div className="md:w-1/2 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Team collaborating in a modern office" className="rounded-lg shadow-2xl animated-image"/>
                     </div>
-                    <div className="md:w-1/2 text-lg text-slate-300 leading-relaxed">
+                    <div className="md:w-1/2 text-lg text-gray-300 leading-relaxed">
                         <p>
                             <span className="font-bold text-[#64ffda]">Wide Angle</span> is a forward-thinking Project Management Consultancy dedicated to delivering complex airport projects with precision, innovation, and efficiency. From concept design through final account, we support clients in achieving their vision while minimizing risks, optimizing costs, and ensuring timely delivery.
                         </p>
@@ -28,19 +28,19 @@ const AboutSection: React.FC = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-16 items-center">
-                    <div className="bg-[#112240] p-8 rounded-lg shadow-lg">
-                        <h3 className="text-3xl font-bold text-slate-100 mb-4">Our Vision</h3>
-                        <p className="text-lg text-slate-300">
+                    <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 className="text-gray-100 text-3xl font-bold mb-4">Our Vision</h3>
+                        <p className="text-lg text-gray-300">
                             To be the most trusted partner in delivering world-class airport infrastructure through innovation, agility, and sustainable solutions.
                         </p>
                     </div>
                     <div className="p-8">
-                         <h3 className="text-3xl font-bold text-slate-100 mb-4">Our Mission</h3>
+                         <h3 className="text-gray-100 text-3xl font-bold mb-4">Our Mission</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {missionItems.map((item, index) => (
-                                <div key={index} className="flex flex-col p-4 bg-[#112240] rounded-lg border border-slate-700 shadow-sm hover:shadow-xl hover:border-[#64ffda]/50 transition-all duration-300">
+                                <div key={index} className="flex flex-col p-4 bg-gray-800 rounded-lg border border-gray-700 shadow-sm hover:shadow-xl hover:border-[#64ffda]/50 transition-all duration-300">
                                     <h4 className="font-bold text-[#64ffda] text-lg mb-2">{item.title}</h4>
-                                    <p className="text-slate-300">{item.description}</p>
+                                    <p className="text-gray-300">{item.description}</p>
                                 </div>
                             ))}
                         </div>

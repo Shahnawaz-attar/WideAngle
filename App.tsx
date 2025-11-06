@@ -8,6 +8,7 @@ import ServicesSection from './components/ServicesSection';
 import LeadershipSection from './components/LeadershipSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton'; // Import the new component
 
 const App: React.FC = () => {
 
@@ -20,8 +21,8 @@ const App: React.FC = () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section[id]').forEach(section => {
-        observer.observe(section);
+    document.querySelectorAll('section[id], footer[id]').forEach(element => {
+        observer.observe(element);
     });
 
     return () => observer.disconnect();
@@ -29,7 +30,7 @@ const App: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-[#0a192f] font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 text-gray-100 font-sans overflow-x-hidden">
       <Header />
       <main>
         <Hero />
@@ -41,6 +42,7 @@ const App: React.FC = () => {
         <LeadershipSection />
       </main>
       <Footer />
+      <ScrollToTopButton /> {/* Add the scroll-to-top button here */}
     </div>
   );
 };

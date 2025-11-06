@@ -10,21 +10,21 @@ const values = [
 
 // Fix: Replaced JSX.Element with React.ReactElement to resolve namespace issue.
 const ValueCard: React.FC<{ icon: React.ReactElement; title: string; text: string; }> = ({ icon, title, text }) => (
-    <div className="bg-[#112240] p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-[#64ffda]/10 transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
+    <div className="bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl hover:shadow-[#64ffda]/20 transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
         <div className="bg-[#64ffda]/10 text-[#64ffda] rounded-full p-4 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">{icon}</svg>
         </div>
-        <h3 className="text-xl font-bold text-slate-100 mb-2">{title}</h3>
-        <p className="text-slate-300">{text}</p>
+        <h3 className="text-gray-100 text-xl font-bold mb-2">{title}</h3>
+        <p className="text-gray-300">{text}</p>
     </div>
 );
 
 const ValuesSection: React.FC = () => {
     return (
-        <section id="values" className="py-24 bg-[#112240]">
+        <section id="values" className="py-24 bg-gray-800">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-100">Our Core Values</h2>
+                    <h2 className="text-gray-100 text-4xl font-bold">Our Core Values</h2>
                     <div className="w-24 h-1 bg-[#64ffda] mx-auto mt-4"></div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
