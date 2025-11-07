@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Logo = () => (
     <div className="flex items-center space-x-3">
@@ -14,6 +15,7 @@ const Logo = () => (
 const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,6 +24,25 @@ const Header: React.FC = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Close menu on outside click
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     const navItems = [
         { name: 'About', href: '#about' },
@@ -58,25 +79,57 @@ const Header: React.FC = () => {
                     )}
                 </button>
             </div>
-            {/* Mobile Menu Panel */}
-            <div className={`
-                absolute top-full left-0 right-0 bg-gray-800/95 backdrop-blur-sm md:hidden
-                transition-all duration-300 ease-in-out
-                ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden
-            `}>
-                <nav className="flex flex-col items-center space-y-6 py-8">
-                    {navItems.map(item => (
-                        <a
-                            key={item.name}
-                            href={item.href}
-                            onClick={toggleMenu}
-                            className="text-xl font-medium text-gray-300 hover:text-[#64ffda] transition-colors"
-                        >
-                            {item.name}
-                        </a>
-                    ))}
-                </nav>
-            </div>
+            {/* Mobile Menu Drawer */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        ref={menuRef}
+                        className="fixed inset-y-0 left-0 w-full max-w-xs bg-gray-800/95 backdrop-blur-sm shadow-xl z-[9999] p-6 flex flex-col"
+                        initial={{ x: '-100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={{ duration: 0.4, ease: [0.2, 0.9, 0.3, 1] }}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="mobile-menu-title"
+                    >
+                        <div className="flex justify-between items-center mb-8">
+                            <h2 id="mobile-menu-title" className="text-2xl font-bold text-gray-100">Navigation</h2>
+                            <button
+                                onClick={toggleMenu}
+                                className="text-[#64ffda] hover:text-[#0ea5a4]/80 focus:outline-none focus:ring-2 focus:ring-[#64ffda] rounded-md p-1"
+                                aria-label="Close menu"
+                            >
+                                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </button>
+                        </div>
+                        <nav className="flex flex-col items-start space-y-6 flex-grow">
+                            {navItems.map(item => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={toggleMenu}
+                                    className="text-2xl font-medium text-gray-300 hover:text-[#64ffda] transition-colors w-full py-2"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
+                        </nav>
+                        {/* Optionally add social links or other info here */}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            {isMenuOpen && (
+                <motion.div
+                    className="fixed inset-0 bg-black/70 z-[9998]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    onClick={toggleMenu}
+                    aria-hidden="true"
+                ></motion.div>
+            )}
         </header>
     );
 };
